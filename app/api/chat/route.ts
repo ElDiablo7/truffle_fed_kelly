@@ -41,20 +41,30 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Please enter a question for GRACE-X." }, { status: 400 });
     }
 
-    const response = await fetch("https://api.openai.com/v1/responses", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || "gpt-5.5",
-        instructions: GRACE_X_INSTRUCTIONS,
-        input: messages,
-        max_output_tokens: 450,
-        store: false,
-      }),
-    });
+    const preferredModel = process.env.OPENAI_MODEL || "gpt-4o-mini";
+    const models = [...new Set([preferredModel, "gpt-4o-mini"])]
+    let result: { output?: Array<{ content?: Array<{ type: string; text?: string }> }>; error?: { code?: string; message?: string } } | undefined;
+    let lastStatus = 500;
 
-    const result = await response.json();
-    if (!response.ok) throw new Error(result?.error?.message || "OpenAI request failed");
+    for (const model of models) {
+      const response = await fetch("https://api.openai.com/v1/responses", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ model, instructions: GRACE_X_INSTRUCTIONS, input: messages, max_output_tokens: 450, store: false }),
+        signal: AbortSignal.timeout(30_000),
+      });
+      result = await response.json();
+      lastStatus = response.status;
+      if (response.ok) break;
+
+      const canFallback = ["model_not_found", "invalid_model", "permission_denied"].includes(result?.error?.code || "") || response.status === 404;
+      if (!canFallback) break;
+    }
+
+    if (!result?.output) {
+      console.error("GRACE-X OpenAI response", { status: lastStatus, code: result?.error?.code, message: result?.error?.message });
+      throw new Error(result?.error?.message || "OpenAI request failed");
+    }
 
     const reply = result.output
       ?.flatMap((item: { content?: Array<{ type: string; text?: string }> }) => item.content || [])
