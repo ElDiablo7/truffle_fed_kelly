@@ -470,6 +470,82 @@ img {
   line-height: 1.75;
 }
 
+.intro-copy strong {
+  color: #0d633d;
+  font-weight: 700;
+}
+
+.signature-proof {
+  min-height: 330px;
+  padding: 0 clamp(24px, 8vw, 130px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(40, 125, 79, 0.28), transparent 42%),
+    linear-gradient(135deg, #06120c, #0b2a1b 50%, #040806);
+  color: var(--ivory);
+}
+
+.signature-proof article {
+  position: relative;
+  padding: 72px clamp(24px, 3.5vw, 58px) 62px;
+  border-right: 1px solid rgba(224, 188, 115, 0.2);
+}
+
+.signature-proof article:first-child {
+  padding-left: 0;
+}
+
+.signature-proof article:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.signature-proof article::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: clamp(24px, 3.5vw, 58px);
+  width: 36px;
+  height: 1px;
+  background: var(--gold-bright);
+}
+
+.signature-proof article:first-child::before {
+  left: 0;
+}
+
+.signature-proof span {
+  color: var(--gold-bright);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.signature-proof h2 {
+  margin: 18px 0 15px;
+  color: #f4efe4;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 48px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.signature-proof h2 em {
+  color: #8ed2aa;
+  font-weight: 400;
+}
+
+.signature-proof p {
+  max-width: 340px;
+  margin: 0;
+  color: rgba(244, 239, 228, 0.52);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
 .collection-section {
   min-height: 850px;
   display: grid;
@@ -520,6 +596,18 @@ img {
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.12em;
+}
+
+.feature-list .feature-emphasis {
+  color: #0d633d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.feature-list .feature-emphasis span {
+  padding-top: 5px;
+  color: #0d633d;
 }
 
 .button-outline {
@@ -748,6 +836,11 @@ img {
 .ritual-copy .lead {
   margin: 34px 0;
   color: rgba(244, 239, 228, 0.63);
+}
+
+.ritual-copy .lead strong {
+  color: #9bdab3;
+  font-weight: 400;
 }
 
 .ritual-points {
@@ -1223,6 +1316,28 @@ footer > small {
   .faq-section,
   .contact-section {
     grid-template-columns: 1fr;
+  }
+
+  .signature-proof {
+    grid-template-columns: 1fr;
+  }
+
+  .signature-proof article,
+  .signature-proof article:first-child,
+  .signature-proof article:last-child {
+    padding: 58px 0 46px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(224, 188, 115, 0.2);
+  }
+
+  .signature-proof article:last-child {
+    border-bottom: 0;
+  }
+
+  .signature-proof article::before,
+  .signature-proof article:first-child::before {
+    top: 34px;
+    left: 0;
   }
 
   .intro-section .section-number {

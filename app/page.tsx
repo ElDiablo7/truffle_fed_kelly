@@ -25,7 +25,7 @@ const faqs = [
   {
     question: "Are the caviar and face mask the same product?",
     answer:
-      "No. They are two separate collections from one truffle-fed concept: a culinary escargot-caviar collection and a snail-derived skincare ritual. Each will have its own ingredients, directions and product information.",
+      "No. They are two separate collections from one truffle-fed Helix Aspersa origin: White Gold Caviar for the culinary collection and Pure Snail Mucin for the skincare ritual. Each will have its own ingredients, directions and product information.",
   },
   {
     question: "Can chefs, retailers and beauty professionals enquire?",
@@ -158,8 +158,8 @@ export default function Home() {
         </div>
         <div className="intro-copy">
           <p>
-            Truffle Fed begins with a singular idea: make the snail’s truffle-led
-            diet the origin story of an entirely new luxury house.
+            Truffle Fed begins with a singular idea: make the truffle-led diet of
+            <strong> Helix Aspersa</strong> the origin story of an entirely new luxury house.
           </p>
           <p>
             Kelly’s culinary collection celebrates rare escargot pearls. The skin
@@ -167,6 +167,24 @@ export default function Home() {
             Different experiences, connected by one unmistakable signature.
           </p>
         </div>
+      </section>
+
+      <section className="signature-proof" aria-label="The three signatures of Truffle Fed">
+        <article>
+          <span>THE ORIGIN</span>
+          <h2><em>Helix Aspersa</em></h2>
+          <p>One remarkable species at the heart of both collections.</p>
+        </article>
+        <article>
+          <span>THE CULINARY SIGNATURE</span>
+          <h2>White Gold Caviar</h2>
+          <p>Every precious pearl individually hand-sorted.</p>
+        </article>
+        <article>
+          <span>THE SKIN SIGNATURE</span>
+          <h2>Pure Snail Mucin</h2>
+          <p>The defining foundation of Kelly’s elevated skin ritual.</p>
+        </article>
       </section>
 
       <section className="collection-section" id="caviar">
@@ -179,8 +197,8 @@ export default function Home() {
           </p>
           <ul className="feature-list">
             <li><span>01</span> Truffle-fed origin story</li>
-            <li><span>02</span> Created for private tables and professional kitchens</li>
-            <li><span>03</span> Product-specific provenance and serving information</li>
+            <li className="feature-emphasis"><span>02</span> Every pearl is hand-sorted</li>
+            <li><span>03</span> Created for private tables and professional kitchens</li>
           </ul>
           <a className="button button-outline" href="#contact">
             Request a tasting enquiry
@@ -232,7 +250,7 @@ export default function Home() {
           <p className="eyebrow">THE SKIN RITUAL</p>
           <h2>The rare source,<br />beyond the table.</h2>
           <p className="lead">
-            A face-mask concept built around a snail-derived skincare ritual,
+            A face-mask concept built around <strong>Pure Snail Mucin</strong>,
             presented with the same black, gold and emerald codes as the culinary
             collection.
           </p>
