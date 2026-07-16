@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { KeyboardEvent, useEffect, useRef, useState } from "react";
 
 type Message = { role: "user" | "assistant"; content: string };
 
@@ -47,7 +47,13 @@ export default function GraceXChat() {
     } finally { setBusy(false); }
   }
 
-  function submit(event: FormEvent) { event.preventDefault(); void ask(input); }
+  function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      event.stopPropagation();
+      void ask(input);
+    }
+  }
 
   return <>
     <button className="grace-launcher" type="button" onClick={() => setOpen(true)} aria-label="Open GRACE-X AI concierge">
@@ -67,7 +73,7 @@ export default function GraceXChat() {
         {busy && <div className="grace-typing"><i /><i /><i /></div>}
         <div ref={endRef} />
       </div>
-      <form className="grace-input" onSubmit={submit}><input value={input} onChange={(event) => setInput(event.target.value)} maxLength={1600} placeholder="Ask GRACE-X…" aria-label="Your question" /><button type="submit" disabled={busy || !input.trim()} aria-label="Send question">↑</button></form>
+      <div className="grace-input" role="group" aria-label="Ask GRACE-X"><input value={input} onChange={(event) => setInput(event.target.value)} onKeyDown={handleKeyDown} maxLength={1600} placeholder="Ask GRACE-X…" aria-label="Your question" /><button type="button" onClick={() => void ask(input)} disabled={busy || !input.trim()} aria-label="Send question">↑</button></div>
       <p className="grace-disclosure">AI voice and answers may make mistakes. Verify important product information.</p>
     </section>}
   </>;
