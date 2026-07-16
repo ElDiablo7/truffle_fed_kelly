@@ -1548,3 +1548,38 @@ footer > small {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
+
+/* GRACE-X AI concierge */
+.grace-launcher { position: fixed; z-index: 80; right: 24px; bottom: 22px; display: flex; align-items: center; gap: 11px; padding: 9px 17px 9px 9px; border: 1px solid rgba(218,174,84,.65); border-radius: 999px; color: #f4dfac; background: rgba(5,15,10,.94); box-shadow: 0 14px 42px rgba(0,0,0,.45), inset 0 0 20px rgba(37,111,73,.18); backdrop-filter: blur(16px); cursor: pointer; }
+.grace-launcher > span:last-child { display: grid; text-align: left; line-height: 1.1; }
+.grace-launcher strong { font: 600 11px/1.2 Arial,sans-serif; letter-spacing: .16em; }
+.grace-launcher small { margin-top: 3px; color: #8eaa98; font: 500 8px/1 Arial,sans-serif; letter-spacing: .15em; }
+.grace-orb { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid #d6a84c; border-radius: 50%; color: #0c2518; background: radial-gradient(circle at 36% 28%,#fff1bd 0,#c99536 34%,#77500f 71%,#e6c56d 100%); box-shadow: 0 0 22px rgba(220,176,79,.24); font: 800 11px/1 Arial,sans-serif; letter-spacing: .07em; }
+.grace-panel { position: fixed; z-index: 90; right: 24px; bottom: 22px; display: grid; grid-template-rows: auto 1fr auto auto; width: min(390px,calc(100vw - 32px)); height: min(620px,calc(100dvh - 44px)); overflow: hidden; border: 1px solid rgba(210,168,76,.65); border-radius: 18px; color: #eee8da; background: radial-gradient(circle at top right,rgba(26,86,56,.28),transparent 38%),#07100c; box-shadow: 0 30px 90px rgba(0,0,0,.65); }
+.grace-header { display: flex; align-items: center; gap: 11px; padding: 14px 15px; border-bottom: 1px solid rgba(214,168,76,.22); background: rgba(5,20,13,.94); }
+.grace-header .grace-orb { width: 40px; height: 40px; flex-basis: 40px; }
+.grace-header div { display: grid; gap: 3px; }
+.grace-header strong { font: 600 14px/1 Arial,sans-serif; letter-spacing: .14em; }
+.grace-header strong i { color: #cfaa5c; font-style: normal; }
+.grace-header small { color: #a5b3aa; font: 500 8px/1 Arial,sans-serif; letter-spacing: .13em; }
+.grace-header small b { display: inline-block; width: 6px; height: 6px; margin-right: 4px; border-radius: 50%; background: #39dc82; box-shadow: 0 0 7px #39dc82; }
+.grace-header > button { margin-left: auto; border: 0; color: #d5cdbb; background: none; font: 300 27px/1 Arial,sans-serif; cursor: pointer; }
+.grace-messages { overflow-y: auto; padding: 18px 15px; scrollbar-width: thin; scrollbar-color: #8c7138 transparent; }
+.grace-message { max-width: 88%; margin-bottom: 12px; }
+.grace-message p { margin: 0; padding: 12px 14px; border-radius: 4px 14px 14px 14px; color: #e8e2d6; background: #13261c; font: 400 14px/1.55 Arial,sans-serif; }
+.grace-message.user { margin-left: auto; }
+.grace-message.user p { border: 1px solid rgba(204,165,80,.3); border-radius: 14px 4px 14px 14px; background: #292217; }
+.grace-speak { margin: 6px 0 0 8px; border: 0; color: #c7aa6a; background: transparent; font: 600 9px/1 Arial,sans-serif; letter-spacing: .08em; cursor: pointer; }
+.grace-suggestions { display: grid; gap: 7px; margin: 15px 0; }
+.grace-suggestions button { padding: 9px 12px; border: 1px solid rgba(205,165,77,.28); border-radius: 99px; color: #d8c99f; background: rgba(26,67,44,.32); font: 500 11px/1.25 Arial,sans-serif; text-align: left; cursor: pointer; }
+.grace-typing { display: flex; gap: 4px; width: fit-content; padding: 12px 14px; border-radius: 4px 14px 14px 14px; background: #13261c; }
+.grace-typing i { width: 5px; height: 5px; border-radius: 50%; background: #d8b15c; animation: gracePulse 1s infinite alternate; }
+.grace-typing i:nth-child(2) { animation-delay: .2s; }.grace-typing i:nth-child(3) { animation-delay: .4s; }
+@keyframes gracePulse { to { opacity: .2; transform: translateY(-3px); } }
+.grace-input { display: grid; grid-template-columns: 1fr 42px; gap: 8px; padding: 10px 12px; border-top: 1px solid rgba(205,165,77,.18); }
+.grace-input input { min-width: 0; padding: 11px 13px; border: 1px solid rgba(205,165,77,.25); border-radius: 9px; outline: 0; color: #f1ebdf; background: #0d1c14; font: 400 14px Arial,sans-serif; }
+.grace-input input:focus { border-color: #cba550; box-shadow: 0 0 0 2px rgba(203,165,80,.1); }
+.grace-input button { border: 1px solid #d3ac58; border-radius: 9px; color: #102016; background: linear-gradient(135deg,#f1d98d,#ad792a); font-size: 21px; cursor: pointer; }
+.grace-input button:disabled { opacity: .4; cursor: default; }
+.grace-disclosure { margin: 0; padding: 0 13px 10px; color: #718078; font: 400 8px/1.3 Arial,sans-serif; text-align: center; }
+@media (max-width: 520px) { .grace-launcher { right: 14px; bottom: 14px; } .grace-panel { right: 8px; bottom: 8px; width: calc(100vw - 16px); height: calc(100dvh - 16px); } }

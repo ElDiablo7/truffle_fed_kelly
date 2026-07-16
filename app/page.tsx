@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Image from "next/image";
+import GraceXChat from "@/components/GraceXChat";
 
 const navigation = [
   ["The House", "#house"],
@@ -407,6 +408,7 @@ export default function Home() {
         </nav>
         <small>© {new Date().getFullYear()} Kelly Stopher. All rights reserved.</small>
       </footer>
+      <GraceXChat />
     </main>
   );
 }

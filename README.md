@@ -18,9 +18,12 @@ Luxury one-page website for Truffle Fed, Émeraude Noire and White Gold Escargot
 
    ```text
    NEXT_PUBLIC_SITE_URL=https://your-generated-domain.up.railway.app
+   OPENAI_API_KEY=your-secret-openai-api-key
    ```
 
 Railway reads `railway.json`, runs `npm run build`, starts the site on its injected `PORT`, and redeploys automatically whenever the connected GitHub branch changes.
+
+GRACE-X uses `gpt-5.5` for grounded concierge answers and `gpt-4o-mini-tts` with the `marin` voice. Override these defaults with `OPENAI_MODEL`, `OPENAI_VOICE_MODEL` or `OPENAI_VOICE` if required. The API key remains server-side.
 
 ## Local development
 
