@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.npm-cache/
+.runtime-home/
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+.DS_Store
+*.tsbuildinfo
