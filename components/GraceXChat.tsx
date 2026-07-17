@@ -16,7 +16,11 @@ export default function GraceXChat() {
   const endRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => {\n    const marker = endRef.current;\n    const scroller = marker?.parentElement;\n    if (scroller) scroller.scrollTop = scroller.scrollHeight;\n  }, [messages, busy]);
+  useEffect(() => {
+    const marker = endRef.current;
+    const scroller = marker?.parentElement;
+    if (scroller) scroller.scrollTop = scroller.scrollHeight;
+  }, [messages, busy]);
 
   async function speak(text: string) {
     audioRef.current?.pause();
