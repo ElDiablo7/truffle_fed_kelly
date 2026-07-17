@@ -16,7 +16,7 @@ export default function GraceXChat() {
   const endRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => endRef.current?.scrollIntoView({ behavior: "smooth" }), [messages, busy]);
+  useEffect(() => {\n    const marker = endRef.current;\n    const scroller = marker?.parentElement;\n    if (scroller) scroller.scrollTop = scroller.scrollHeight;\n  }, [messages, busy]);
 
   async function speak(text: string) {
     audioRef.current?.pause();
